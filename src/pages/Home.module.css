@@ -1,0 +1,8 @@
+.container {
+  box-sizing: content-box;
+  padding-inline: rem(25px) rem(26px);
+}
+
+.content {
+  min-height: 100vh;
+}
