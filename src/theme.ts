@@ -1,6 +1,28 @@
-import { createTheme } from '@mantine/core';
+import { createTheme, rem } from '@mantine/core';
 
 export const theme = createTheme({
   /** Put your mantine theme override here */
   fontFamily: "'Mouse Memoirs', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'",
+  fontSizes: {
+    'heading-xl': rem(136),
+    'heading-l': rem(88),
+    'heading-m': rem(48),
+    'heading-s': rem(32),
+    body: rem(26),
+  },
+  colors: {
+    blue: [
+      '#e6f1ff',
+      '#cdddff',
+      '#9ab8ff',
+      '#6391ff',
+      '#3670ff',
+      '#2463ff', // blue
+      '#0150ff',
+      '#0041e5',
+      '#0039ce',
+      '#261676', // dark-navy
+    ],
+  },
+  primaryShade: 5,
 });

@@ -23,6 +23,7 @@
       {
         "ignorePseudoClasses": ["global"]
       }
-    ]
+    ],
+    "scss/no-global-function-names": null
   }
 }
