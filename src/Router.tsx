@@ -1,13 +1,15 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/Home.page';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomePage />,
-  },
-]);
+import { HowToPlay } from './screens/HowToPlay.screen';
+import { MainMenu } from './screens/MainMenu.screen';
+import { state, useSnapshot } from './state';
 
 export function Router() {
-  return <RouterProvider router={router} />;
+  const { screen } = useSnapshot(state);
+
+  let currentScreen = <MainMenu />;
+
+  if (screen === 'howtoplay') {
+    currentScreen = <HowToPlay />;
+  }
+
+  return <>{currentScreen}</>;
 }

@@ -1,9 +1,9 @@
 import { Box, Center, Container } from '@mantine/core';
 import { MenuButton } from '@/components/MenuButton';
 import { PlayButton } from '@/components/PlayButton';
-import classes from './Home.module.css';
+import classes from './MainMenu.module.css';
 
-export function HomePage() {
+export function MainMenu() {
   return (
     <Container size={592} className={classes.container}>
       <Center className={classes.content}>
@@ -16,7 +16,7 @@ export function HomePage() {
             className={classes.logo}
           />
           <PlayButton />
-          <MenuButton>How to Play</MenuButton>
+          <MenuButton target="howtoplay">How to Play</MenuButton>
         </Box>
       </Center>
     </Container>
