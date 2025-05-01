@@ -10,6 +10,7 @@ export const theme = createTheme({
     'heading-s': rem(32),
     body: rem(26),
   },
+  headings: { fontWeight: '400' },
   colors: {
     blue: [
       '#e6f1ff',
