@@ -1,0 +1,7 @@
+.overlay {
+  background: linear-gradient(180deg, #1a043a 0%, #151278 70%, #2b1677 100%);
+  opacity: 0.75;
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}

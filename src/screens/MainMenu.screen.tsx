@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Box, Center, Container } from '@mantine/core';
 import { MenuButton } from '@/components/MenuButton';
 import { PlayButton } from '@/components/PlayButton';
+import { navigate } from '@/state';
 import classes from './MainMenu.module.css';
 
 export function MainMenu() {
@@ -23,7 +24,7 @@ export function MainMenu() {
               height="185"
               className={classes.logo}
             />
-            <PlayButton />
+            <PlayButton onGameStart={() => navigate('categorypick')} />
             <MenuButton target="howtoplay">How to Play</MenuButton>
           </Box>
         </AnimatePresence>
