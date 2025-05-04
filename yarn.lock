@@ -6869,6 +6869,7 @@ __metadata:
     typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.27.0"
     valtio: "npm:^2.1.4"
+    valtio-fsm: "npm:^1.0.0"
     vite: "npm:^6.2.2"
     vite-plugin-svgr: "npm:^4.3.0"
     vite-tsconfig-paths: "npm:^5.1.4"
@@ -9943,6 +9944,15 @@ __metadata:
     is-typed-array: "npm:^1.1.3"
     which-typed-array: "npm:^1.1.2"
   checksum: 10c0/c27054de2cea2229a66c09522d0fa1415fb12d861d08523a8846bf2e4cbf0079d4c3f725f09dcb87493549bcbf05f5798dce1688b53c6c17201a45759e7253f3
+  languageName: node
+  linkType: hard
+
+"valtio-fsm@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "valtio-fsm@npm:1.0.0"
+  dependencies:
+    valtio: "npm:^2.1.4"
+  checksum: 10c0/c67570b17304629223e87c816b116a5b35ba16c7e4d221ce14379210b7c1ecfda810fc7942336ae23af82619bb15fd631cdd5bafc4c2554036942fd07cacd37d
   languageName: node
   linkType: hard
 

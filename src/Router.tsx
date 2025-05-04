@@ -1,20 +1,21 @@
 import { AnimatePresence } from 'motion/react';
+import { useSnapshot } from 'valtio';
 import { CategoryPick } from './screens/CategoryPick.screen';
 import { HowToPlay } from './screens/HowToPlay.screen';
 import { MainMenu } from './screens/MainMenu.screen';
-import { state, useSnapshot } from './state';
+import { gameMachine } from './state';
 
 export function Router() {
-  const { screen } = useSnapshot(state);
+  const { state } = useSnapshot(gameMachine.getStore());
 
-  let currentScreen = <MainMenu key={screen} />;
+  let currentScreen = <MainMenu key={state} />;
 
-  if (screen === 'howtoplay') {
-    currentScreen = <HowToPlay key={screen} />;
+  if (state === 'howtoplay') {
+    currentScreen = <HowToPlay key={state} />;
   }
 
-  if (screen === 'categorypick') {
-    currentScreen = <CategoryPick key={screen} />;
+  if (state === 'categorypick') {
+    currentScreen = <CategoryPick key={state} />;
   }
 
   return <AnimatePresence mode="wait">{currentScreen}</AnimatePresence>;

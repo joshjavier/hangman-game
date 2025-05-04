@@ -1,9 +1,9 @@
 import { Button, ButtonProps } from '@mantine/core';
-import { navigate, Screen } from '@/state';
+import { GameState, navigate } from '@/state';
 import classes from './MenuButton.module.css';
 
 type MenuButtonProps = ButtonProps & {
-  target?: Screen;
+  target?: GameState;
 };
 
 export function MenuButton({ children, target, ...props }: MenuButtonProps) {

@@ -27,7 +27,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.4.0",
-    "valtio": "^2.1.4"
+    "valtio": "^2.1.4",
+    "valtio-fsm": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
