@@ -1,0 +1,44 @@
+.root {
+  --ai-size: rem(40px);
+  border: none;
+  border-radius: 999em;
+  background: linear-gradient(180deg, #fe71fe 0%, #7199ff 100%);
+
+  @mixin hover {
+    & > * {
+      background: alpha(#fff, 0.25);
+    }
+  }
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    --ai-size: rem(64px);
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    --ai-size: rem(94px);
+  }
+}
+
+.icon {
+  border-radius: 999em;
+  box-shadow: inset 0 -5px 0 -1px alpha(#9d2df5, 0.25);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    box-shadow: inset 0 -6px 0 7px alpha(#9d2df5, 0.25);
+  }
+
+  & svg {
+    width: rem(17.45px);
+    height: rem(16.17px);
+
+    @media (min-width: $mantine-breakpoint-xs) {
+      width: rem(27.91px);
+      height: rem(25.87px);
+    }
+
+    @media (min-width: $mantine-breakpoint-md) {
+      width: rem(41px);
+      height: rem(38px);
+    }
+  }
+}

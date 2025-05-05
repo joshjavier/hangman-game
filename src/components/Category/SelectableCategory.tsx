@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Button, ButtonProps } from '@mantine/core';
 import { Category } from '@/data';
+import { gameMachine } from '@/state';
 import classes from './SelectableCategory.module.css';
 
 type SelectableCategoryProps = ButtonProps & {
@@ -18,6 +19,7 @@ export function SelectableCategory({ category, ...props }: SelectableCategoryPro
       component={motion.button}
       variants={variants}
       classNames={{ root: classes.root, label: classes.label }}
+      onClick={() => gameMachine.moveTo('playing', category.id)}
       {...props}
     >
       {category.name}
