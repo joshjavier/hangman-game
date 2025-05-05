@@ -1,0 +1,28 @@
+.track {
+  width: clamp(3.5625rem, -2.5802rem + 26.2087vw, 10rem);
+  padding-block: clamp(0.25rem, -0.0482rem + 1.2723vw, 0.5625rem);
+  padding-inline: clamp(0.25rem, -0.1675rem + 1.7812vw, 0.6875rem);
+  border-radius: rem(96px);
+  background-color: #fff;
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    width: rem(160px);
+    padding: rem(9px) rem(11px);
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    width: rem(240px);
+  }
+}
+
+.bar {
+  height: clamp(0.5rem, 0.2018rem + 1.2723vw, 0.8125rem);
+  border-radius: rem(96px);
+  background-color: var(--mantine-color-blue-9);
+  width: calc(100% / var(--health-max) * var(--health-current));
+  transition: width 1.2s cubic-bezier(0.33, 1, 0.68, 1);
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    height: rem(13px);
+  }
+}

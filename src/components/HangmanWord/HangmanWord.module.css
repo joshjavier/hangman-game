@@ -1,0 +1,49 @@
+/* I used https://clamp.font-size.app to clamp the gaps and letter sizes
+   between 375px and 768px viewport widths for a smoother transition and
+   less chances of broken layouts. */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.75rem, 0.5115rem + 1.0178vw, 1rem);
+}
+
+.word {
+  display: flex;
+  gap: clamp(0.5rem, 0.2615rem + 1.0178vw, 0.75rem);
+  margin-inline: 1rem; /* add extra space to separate multiple words in a single line */
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    gap: rem(16px);
+  }
+}
+
+.letter {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(2.5rem, -0.3626rem + 12.2137vw, 5.5rem);
+  height: clamp(4.125rem, 1.3817rem + 11.7048vw, 7rem);
+  padding-left: 2px; /* optical adjustment */
+  border-radius: clamp(0.75rem, -0.4427rem + 5.0891vw, 2rem);
+  background-color: var(--mantine-color-blue-5);
+  box-shadow: var(--mantine-shadow-inset);
+  font-size: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
+  line-height: 1.2;
+  letter-spacing: clamp(0.125rem, 0.0534rem + 0.3053vw, 0.2rem);
+  text-transform: uppercase;
+  color: #fff;
+  user-select: none;
+
+  &:empty {
+    opacity: 0.25;
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    width: rem(112px);
+    height: rem(128px);
+    border-radius: rem(40px);
+    font-size: var(--mantine-font-size-heading-l);
+    letter-spacing: normal;
+  }
+}

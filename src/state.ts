@@ -8,8 +8,10 @@ export type GameState =
   | 'playing'
   | 'paused'
   | 'game_over';
+type Screen = 'main_menu' | 'how_to_play' | 'category_pick' | 'playing';
 type GameResult = 'win' | 'lose' | null;
 type GameContext = {
+  screen: Screen;
   category: string | null;
   wordToGuess: string;
   guessedLetters: string[];
@@ -26,33 +28,36 @@ export const gameMachine = createMachine<GameState, GameContext>(
     mainmenu: {
       transitions: ['howtoplay', 'categorypick'],
       onEnter: (ctx) => {
-        if (ctx.gameResult === 'win' || ctx.gameResult === 'lose') {
-          ctx.category = null;
-          ctx.wordToGuess = '';
-          ctx.guessedLetters = [];
-          ctx.remainingAttempts = HP;
-          ctx.gameResult = null;
-        }
+        ctx.screen = 'main_menu';
+        ctx.category = null;
+        ctx.wordToGuess = '';
+        ctx.guessedLetters = [];
+        ctx.remainingAttempts = HP;
+        ctx.gameResult = null;
       },
     },
     howtoplay: {
       transitions: ['mainmenu'],
+      onEnter: (ctx) => {
+        ctx.screen = 'how_to_play';
+      },
     },
     categorypick: {
       transitions: ['mainmenu', 'playing'],
       onEnter: (ctx) => {
-        if (ctx.gameResult === 'win' || ctx.gameResult === 'lose') {
-          ctx.category = null;
-          ctx.wordToGuess = '';
-          ctx.guessedLetters = [];
-          ctx.remainingAttempts = HP;
-          ctx.gameResult = null;
-        }
+        ctx.screen = 'category_pick';
+        ctx.category = null;
+        ctx.wordToGuess = '';
+        ctx.guessedLetters = [];
+        ctx.remainingAttempts = HP;
+        ctx.gameResult = null;
       },
     },
     playing: {
       transitions: ['paused', 'game_over'],
       onEnter: (ctx, category) => {
+        ctx.screen = 'playing';
+
         // Scenario 1: User picks a category from the category pick screen
         if (ctx.category == null && typeof category === 'string') {
           ctx.category = category;
@@ -78,9 +83,15 @@ export const gameMachine = createMachine<GameState, GameContext>(
     },
     game_over: {
       transitions: ['playing', 'categorypick', 'mainmenu'],
+      onEnter: (ctx, result) => {
+        if (result === 'win' || result === 'lose') {
+          ctx.gameResult = result;
+        }
+      },
     },
   },
   {
+    screen: 'main_menu',
     category: null,
     wordToGuess: '',
     guessedLetters: [],
@@ -89,6 +100,42 @@ export const gameMachine = createMachine<GameState, GameContext>(
   }
 );
 
+gameMachine.onContextChange((ctx, changes) => {
+  if (changes.map((c) => c.key).includes('gameResult')) {
+    console.log(`Game over. You ${ctx.gameResult}`);
+  }
+});
+
+gameMachine.on('guessLetter', (ctx, letter) => {
+  if (typeof letter === 'string' && letter.length === 1 && /^[a-z]$/.test(letter)) {
+    ctx.guessedLetters.push(letter);
+
+    if (!ctx.wordToGuess.replace(/\s/g, '').split('').includes(letter)) {
+      ctx.remainingAttempts--;
+    }
+  }
+});
+
 export const navigate = (state: GameState) => {
   gameMachine.moveTo(state);
+};
+
+export const guessLetter = (letter: string) => {
+  if (!gameMachine.isIn('playing')) {
+    throw new Error('You can only guess while playing.');
+  }
+
+  gameMachine.fire('guessLetter', letter);
+
+  if (gameMachine.context.remainingAttempts === 0) {
+    gameMachine.moveTo('game_over', 'lose');
+    return;
+  }
+
+  // Check if all letters are guessed
+  const wordLetters = new Set(gameMachine.context.wordToGuess.replace(/\s/g, '').split(''));
+  const guessedLetters = new Set(gameMachine.context.guessedLetters);
+  if (wordLetters.isSubsetOf(guessedLetters)) {
+    gameMachine.moveTo('game_over', 'win');
+  }
 };
