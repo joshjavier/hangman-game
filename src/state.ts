@@ -8,8 +8,10 @@ export type GameState =
   | 'playing'
   | 'paused'
   | 'game_over';
+type Screen = 'main_menu' | 'how_to_play' | 'category_pick' | 'playing';
 type GameResult = 'win' | 'lose' | null;
 type GameContext = {
+  screen: Screen;
   category: string | null;
   wordToGuess: string;
   guessedLetters: string[];
@@ -26,6 +28,8 @@ export const gameMachine = createMachine<GameState, GameContext>(
     mainmenu: {
       transitions: ['howtoplay', 'categorypick'],
       onEnter: (ctx) => {
+        ctx.screen = 'main_menu';
+
         if (ctx.gameResult === 'win' || ctx.gameResult === 'lose') {
           ctx.category = null;
           ctx.wordToGuess = '';
@@ -37,10 +41,15 @@ export const gameMachine = createMachine<GameState, GameContext>(
     },
     howtoplay: {
       transitions: ['mainmenu'],
+      onEnter: (ctx) => {
+        ctx.screen = 'how_to_play';
+      },
     },
     categorypick: {
       transitions: ['mainmenu', 'playing'],
       onEnter: (ctx) => {
+        ctx.screen = 'category_pick';
+
         if (ctx.gameResult === 'win' || ctx.gameResult === 'lose') {
           ctx.category = null;
           ctx.wordToGuess = '';
@@ -53,6 +62,8 @@ export const gameMachine = createMachine<GameState, GameContext>(
     playing: {
       transitions: ['paused', 'game_over'],
       onEnter: (ctx, category) => {
+        ctx.screen = 'playing';
+
         // Scenario 1: User picks a category from the category pick screen
         if (ctx.category == null && typeof category === 'string') {
           ctx.category = category;
@@ -81,6 +92,7 @@ export const gameMachine = createMachine<GameState, GameContext>(
     },
   },
   {
+    screen: 'main_menu',
     category: null,
     wordToGuess: '',
     guessedLetters: [],

@@ -7,20 +7,22 @@ import { MainMenu } from './screens/MainMenu.screen';
 import { gameMachine } from './state';
 
 export function Router() {
-  const { state } = useSnapshot(gameMachine.getStore());
+  const {
+    context: { screen },
+  } = useSnapshot(gameMachine.getStore());
 
-  let currentScreen = <MainMenu key={state} />;
+  let currentScreen = <MainMenu key={screen} />;
 
-  if (state === 'howtoplay') {
-    currentScreen = <HowToPlay key={state} />;
+  if (screen === 'how_to_play') {
+    currentScreen = <HowToPlay key={screen} />;
   }
 
-  if (state === 'categorypick') {
-    currentScreen = <CategoryPick key={state} />;
+  if (screen === 'category_pick') {
+    currentScreen = <CategoryPick key={screen} />;
   }
 
-  if (['playing', 'paused', 'game_over'].includes(state)) {
-    currentScreen = <InGame key={state} />;
+  if (screen === 'playing') {
+    currentScreen = <InGame key={screen} />;
   }
 
   return <AnimatePresence mode="wait">{currentScreen}</AnimatePresence>;
