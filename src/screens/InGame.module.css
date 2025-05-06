@@ -1,0 +1,17 @@
+.upper {
+  box-sizing: content-box;
+  padding-inline: rem(25px);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-inline: rem(40px);
+  }
+}
+
+.lower {
+  box-sizing: content-box;
+  padding-inline: rem(25px);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-inline: rem(32px);
+  }
+}

@@ -1,10 +1,12 @@
 .header {
   justify-content: space-between;
   align-items: center;
-  margin-top: rem(46px);
+  padding-top: rem(46px);
+  flex-wrap: wrap-reverse;
+  gap: 1rem;
 
   @media (min-width: $mantine-breakpoint-xs) {
-    margin-top: rem(60px);
+    padding-top: rem(60px);
   }
 }
 

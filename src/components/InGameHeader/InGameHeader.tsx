@@ -2,6 +2,7 @@ import { useSnapshot } from 'valtio';
 import { Flex, Title } from '@mantine/core';
 import { categories } from '@/data';
 import { gameMachine } from '@/state';
+import { HealthIndicator } from '../HealthIndicator';
 import { PauseButton } from '../PauseButton';
 import classes from './InGameHeader.module.css';
 
@@ -17,7 +18,7 @@ export function InGameHeader() {
           {category}
         </Title>
       </Flex>
-      <div>Health Indicator</div>
+      <HealthIndicator />
     </Flex>
   );
 }
