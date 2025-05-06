@@ -1,8 +1,20 @@
 import { useSnapshot } from 'valtio';
 import { gameMachine } from '@/state';
+import { Word } from './Word';
+import classes from './HangmanWord.module.css';
 
 export function HangmanWord() {
-  const { context } = useSnapshot(gameMachine.getStore());
+  const {
+    context: { wordToGuess },
+  } = useSnapshot(gameMachine.getStore());
 
-  return <div>{context.wordToGuess}</div>;
+  const tokens = wordToGuess.toLowerCase().split(' ');
+
+  return (
+    <div className={classes.container}>
+      {tokens.map((token) => (
+        <Word key={token} word={token} />
+      ))}
+    </div>
+  );
 }
