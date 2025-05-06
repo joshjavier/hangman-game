@@ -1,3 +1,8 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: rem(78px);
+}
+
 .upper {
   box-sizing: content-box;
   padding-inline: rem(25px);
@@ -18,8 +23,14 @@
 .lower {
   box-sizing: content-box;
   padding-inline: rem(25px);
+  margin-top: rem(118px);
 
   @media (min-width: $mantine-breakpoint-xs) {
     padding-inline: rem(32px);
+    margin-top: rem(134px);
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    margin-top: rem(120px);
   }
 }

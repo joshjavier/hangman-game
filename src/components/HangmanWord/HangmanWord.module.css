@@ -11,6 +11,7 @@
 .word {
   display: flex;
   gap: clamp(0.5rem, 0.2615rem + 1.0178vw, 0.75rem);
+  margin-inline: 1rem; /* add extra space to separate multiple words in a single line */
 
   @media (min-width: $mantine-breakpoint-lg) {
     gap: rem(16px);

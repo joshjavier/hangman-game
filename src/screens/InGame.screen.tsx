@@ -8,7 +8,12 @@ import classes from './InGame.module.css';
 
 export function InGame() {
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={classes.container}
+    >
       <Overlay />
       <Container size={1216} className={classes.upper}>
         <InGameHeader />
