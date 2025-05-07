@@ -28,5 +28,6 @@ export const theme = createTheme({
   primaryShade: 5,
   shadows: {
     inset: 'inset 0 -2px 0 3px #140e66, inset 0 1px 0 6px #3c74ff',
+    'inset-modal': 'inset 0 -8px 0 4px #140e66, inset 0 6px 0 8px #2463ff',
   },
 });

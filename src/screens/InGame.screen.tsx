@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Container } from '@mantine/core';
 import { HangmanWord } from '@/components/HangmanWord';
 import { InGameHeader } from '@/components/InGameHeader';
+import { InGameMenu } from '@/components/InGameMenu';
 import { Keyboard } from '@/components/Keyboard';
 import { Overlay } from '@/components/Overlay';
 import classes from './InGame.module.css';
@@ -22,6 +23,7 @@ export function InGame() {
       <Container size={1173} className={classes.lower}>
         <Keyboard />
       </Container>
+      <InGameMenu />
     </motion.div>
   );
 }

@@ -29,14 +29,11 @@ export const gameMachine = createMachine<GameState, GameContext>(
       transitions: ['howtoplay', 'categorypick'],
       onEnter: (ctx) => {
         ctx.screen = 'main_menu';
-
-        if (ctx.gameResult === 'win' || ctx.gameResult === 'lose') {
-          ctx.category = null;
-          ctx.wordToGuess = '';
-          ctx.guessedLetters = [];
-          ctx.remainingAttempts = HP;
-          ctx.gameResult = null;
-        }
+        ctx.category = null;
+        ctx.wordToGuess = '';
+        ctx.guessedLetters = [];
+        ctx.remainingAttempts = HP;
+        ctx.gameResult = null;
       },
     },
     howtoplay: {
@@ -49,14 +46,11 @@ export const gameMachine = createMachine<GameState, GameContext>(
       transitions: ['mainmenu', 'playing'],
       onEnter: (ctx) => {
         ctx.screen = 'category_pick';
-
-        if (ctx.gameResult === 'win' || ctx.gameResult === 'lose') {
-          ctx.category = null;
-          ctx.wordToGuess = '';
-          ctx.guessedLetters = [];
-          ctx.remainingAttempts = HP;
-          ctx.gameResult = null;
-        }
+        ctx.category = null;
+        ctx.wordToGuess = '';
+        ctx.guessedLetters = [];
+        ctx.remainingAttempts = HP;
+        ctx.gameResult = null;
       },
     },
     playing: {
