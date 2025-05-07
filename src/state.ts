@@ -89,6 +89,11 @@ export const gameMachine = createMachine<GameState, GameContext>(
     },
     game_over: {
       transitions: ['playing', 'categorypick', 'mainmenu'],
+      onEnter: (ctx, result) => {
+        if (result === 'win' || result === 'lose') {
+          ctx.gameResult = result;
+        }
+      },
     },
   },
   {
@@ -101,6 +106,42 @@ export const gameMachine = createMachine<GameState, GameContext>(
   }
 );
 
+gameMachine.onContextChange((ctx, changes) => {
+  if (changes.map((c) => c.key).includes('gameResult')) {
+    console.log(`Game over. You ${ctx.gameResult}`);
+  }
+});
+
+gameMachine.on('guessLetter', (ctx, letter) => {
+  if (typeof letter === 'string' && letter.length === 1 && /^[a-z]$/.test(letter)) {
+    ctx.guessedLetters.push(letter);
+
+    if (!ctx.wordToGuess.replace(/\s/g, '').split('').includes(letter)) {
+      ctx.remainingAttempts--;
+    }
+  }
+});
+
 export const navigate = (state: GameState) => {
   gameMachine.moveTo(state);
+};
+
+export const guessLetter = (letter: string) => {
+  if (!gameMachine.isIn('playing')) {
+    throw new Error('You can only guess while playing.');
+  }
+
+  gameMachine.fire('guessLetter', letter);
+
+  if (gameMachine.context.remainingAttempts === 0) {
+    gameMachine.moveTo('game_over', 'lose');
+    return;
+  }
+
+  // Check if all letters are guessed
+  const wordLetters = new Set(gameMachine.context.wordToGuess.replace(/\s/g, '').split(''));
+  const guessedLetters = new Set(gameMachine.context.guessedLetters);
+  if (wordLetters.isSubsetOf(guessedLetters)) {
+    gameMachine.moveTo('game_over', 'win');
+  }
 };

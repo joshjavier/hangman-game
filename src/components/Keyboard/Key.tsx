@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@mantine/core';
+import { guessLetter } from '@/state';
 import classes from './Keyboard.module.css';
 
 interface KeyProps {
@@ -11,6 +12,7 @@ export function Key({ value }: KeyProps) {
 
   const onClick = () => {
     setDisabled(true);
+    guessLetter(value);
   };
 
   return (

@@ -193,10 +193,11 @@ export const words = {
   ],
 };
 
+/** Returns a random word from the given category in lowercase. */
 export const getRandomWord = (category: string): string => {
   if (!Object.keys(words).includes(category)) {
     throw new Error('Invalid category');
   }
   const list = words[category as keyof typeof words];
-  return list[Math.floor(Math.random() * list.length)];
+  return list[Math.floor(Math.random() * list.length)].toLowerCase();
 };

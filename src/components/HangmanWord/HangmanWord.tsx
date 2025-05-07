@@ -8,7 +8,7 @@ export function HangmanWord() {
     context: { wordToGuess },
   } = useSnapshot(gameMachine.getStore());
 
-  const tokens = wordToGuess.toLowerCase().split(' ');
+  const tokens = wordToGuess.split(' ');
 
   return (
     <div className={classes.container}>
