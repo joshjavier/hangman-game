@@ -1,15 +1,11 @@
-import { useSnapshot } from 'valtio';
-import { gameMachine } from '@/state';
+import { memo } from 'react';
 import classes from './HangmanWord.module.css';
 
 interface LetterProps {
   value: string;
+  guessed: boolean;
 }
 
-export function Letter({ value }: LetterProps) {
-  const {
-    context: { guessedLetters },
-  } = useSnapshot(gameMachine.getStore());
-
-  return <span className={classes.letter}>{guessedLetters.includes(value) ? value : null}</span>;
-}
+export const Letter = memo(({ value, guessed }: LetterProps) => {
+  return <span className={classes.letter}>{guessed ? value : null}</span>;
+});
