@@ -12,8 +12,8 @@ export function HangmanWord() {
 
   return (
     <div className={classes.container}>
-      {tokens.map((token) => (
-        <Word key={token} word={token} />
+      {tokens.map((token, index) => (
+        <Word key={token + index} word={token} />
       ))}
     </div>
   );
