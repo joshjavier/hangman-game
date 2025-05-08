@@ -1,36 +1,33 @@
 .container {
   min-height: 100vh;
   padding-bottom: rem(78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > .wordOuter {
+    margin-block: 3rem;
+  }
 }
 
 .upper {
   box-sizing: content-box;
   padding-inline: rem(25px);
-  display: flex;
-  flex-direction: column;
-  gap: rem(78px);
 
   @media (min-width: $mantine-breakpoint-xs) {
     padding-inline: rem(40px);
-    gap: rem(111px);
   }
+}
 
-  @media (min-width: $mantine-breakpoint-md) {
-    gap: rem(88px);
-  }
+.wordOuter {
+  padding-bottom: rem(32px); /* increase bottom spacing a bit more than the top */
 }
 
 .lower {
   box-sizing: content-box;
   padding-inline: rem(25px);
-  margin-top: rem(118px);
 
   @media (min-width: $mantine-breakpoint-xs) {
     padding-inline: rem(32px);
-    margin-top: rem(134px);
-  }
-
-  @media (min-width: $mantine-breakpoint-md) {
-    margin-top: rem(120px);
   }
 }

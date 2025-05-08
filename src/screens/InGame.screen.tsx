@@ -16,13 +16,21 @@ export function InGame() {
       className={classes.container}
     >
       <Overlay />
-      <Container size={1216} className={classes.upper}>
-        <InGameHeader />
-        <HangmanWord />
-      </Container>
-      <Container size={1173} className={classes.lower}>
-        <Keyboard />
-      </Container>
+      <div>
+        <Container size={1216} className={classes.upper}>
+          <InGameHeader />
+        </Container>
+      </div>
+      <div className={classes.wordOuter}>
+        <Container size={1216} className={classes.upper}>
+          <HangmanWord />
+        </Container>
+      </div>
+      <div>
+        <Container size={1173} className={classes.lower}>
+          <Keyboard />
+        </Container>
+      </div>
       <InGameMenu />
     </motion.div>
   );
