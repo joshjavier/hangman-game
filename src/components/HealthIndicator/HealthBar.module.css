@@ -15,14 +15,32 @@
   }
 }
 
-.bar {
+.inner {
   height: clamp(0.5rem, 0.2018rem + 1.2723vw, 0.8125rem);
-  border-radius: rem(96px);
-  background-color: var(--mantine-color-blue-9);
-  width: calc(100% / var(--health-max) * var(--health-current));
-  transition: width 1.2s cubic-bezier(0.33, 1, 0.68, 1);
+  position: relative;
 
   @media (min-width: $mantine-breakpoint-sm) {
     height: rem(13px);
   }
+}
+
+.bar {
+  position: absolute;
+  height: 100%;
+  border-radius: rem(96px);
+  background-color: var(--mantine-color-blue-9);
+  width: calc(100% / var(--health-max) * var(--health-current));
+  z-index: 2;
+}
+
+.damage {
+  position: absolute;
+  height: 100%;
+  border-radius: rem(96px);
+  background-color: var(--mantine-color-yellow-6);
+  width: calc(100% / var(--health-max) * var(--health-current));
+  transition-property: width;
+  transition-delay: 1s;
+  transition-duration: 0.2s;
+  z-index: 1;
 }
