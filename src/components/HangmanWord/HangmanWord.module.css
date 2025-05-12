@@ -35,10 +35,6 @@
   color: #fff;
   user-select: none;
 
-  &:empty {
-    opacity: 0.25;
-  }
-
   @media (min-width: $mantine-breakpoint-lg) {
     width: rem(112px);
     height: rem(128px);
