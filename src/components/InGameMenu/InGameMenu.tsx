@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSnapshot } from 'valtio';
-import { Modal, Title } from '@mantine/core';
+import { Modal } from '@mantine/core';
 import { gameMachine, navigate } from '@/state';
 import { MenuButton } from '../MenuButton';
 import classes from './InGameMenu.module.css';
@@ -29,11 +29,14 @@ export function InGameMenu() {
   }, [state]);
 
   return (
-    <Modal
+    <Modal.Root
       opened={['paused', 'game_over'].includes(state)}
       onClose={() => navigate('playing')}
       centered
-      withCloseButton={false}
+      transitionProps={{
+        transition: state === 'game_over' ? 'pop' : 'fade-down',
+        enterDelay: gameResult === 'win' ? 1000 : undefined,
+      }}
       closeOnClickOutside={false}
       closeOnEscape={state === 'paused'}
       classNames={{
@@ -43,16 +46,19 @@ export function InGameMenu() {
         body: classes.body,
       }}
     >
-      <Title order={3} className={classes.title}>
-        {title}
-      </Title>
-      <MenuButton target="playing" data-autofocus>
-        {playing}
-      </MenuButton>
-      <MenuButton target="categorypick">New Category</MenuButton>
-      <MenuButton target="mainmenu" variant="pink">
-        Quit Game
-      </MenuButton>
-    </Modal>
+      <Modal.Overlay />
+      <Modal.Content>
+        <Modal.Title className={classes.title}>{title}</Modal.Title>
+        <Modal.Body>
+          <MenuButton target="playing" data-autofocus>
+            {playing}
+          </MenuButton>
+          <MenuButton target="categorypick">New Category</MenuButton>
+          <MenuButton target="mainmenu" variant="pink">
+            Quit Game
+          </MenuButton>
+        </Modal.Body>
+      </Modal.Content>
+    </Modal.Root>
   );
 }

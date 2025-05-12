@@ -119,12 +119,14 @@ gameMachine.onContextChange((ctx, changes) => {
 
   if (changes.map((c) => c.key).includes('gameResult')) {
     if (ctx.gameResult === 'win') {
-      winSfx.play();
+      setTimeout(() => {
+        winSfx.play();
+      }, 1000);
     }
     if (ctx.gameResult === 'lose') {
       loseSfx.play();
+      return;
     }
-    return;
   }
 
   if (changes.map((c) => c.key).includes('guessedLetters')) {
