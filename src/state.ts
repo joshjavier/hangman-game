@@ -1,5 +1,6 @@
 import createMachine from 'valtio-fsm';
 import { getRandomWord } from './data';
+import { loseSfx, rightSfx, winSfx, wrongSfx } from './sounds';
 
 export type GameState =
   | 'mainmenu'
@@ -102,7 +103,22 @@ export const gameMachine = createMachine<GameState, GameContext>(
 
 gameMachine.onContextChange((ctx, changes) => {
   if (changes.map((c) => c.key).includes('gameResult')) {
-    console.log(`Game over. You ${ctx.gameResult}`);
+    if (ctx.gameResult === 'win') {
+      winSfx.play();
+    }
+    if (ctx.gameResult === 'lose') {
+      loseSfx.play();
+    }
+    return;
+  }
+
+  if (changes.map((c) => c.key).includes('guessedLetters')) {
+    const lastGuess = ctx.guessedLetters[ctx.guessedLetters.length - 1];
+    if (ctx.wordToGuess.includes(lastGuess)) {
+      rightSfx.play();
+    } else {
+      wrongSfx.play();
+    }
   }
 });
 
