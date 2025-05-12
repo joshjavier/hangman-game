@@ -1,5 +1,6 @@
 import createMachine from 'valtio-fsm';
 import { getRandomWord } from './data';
+import { loseSfx, rightSfx, winSfx, wrongSfx } from './sounds';
 
 export type GameState =
   | 'mainmenu'
@@ -101,8 +102,40 @@ export const gameMachine = createMachine<GameState, GameContext>(
 );
 
 gameMachine.onContextChange((ctx, changes) => {
+  if (changes.map((c) => c.key).includes('wordToGuess')) {
+    const word = changes.find((c) => c.key === 'wordToGuess')!;
+
+    if (word.value !== word.previousValue) {
+      return;
+    }
+
+    // Don't pick the same word when starting a new game in the same category
+    let newWord = ctx.wordToGuess;
+    while (newWord === word.previousValue) {
+      newWord = getRandomWord(ctx.category!);
+    }
+    ctx.wordToGuess = newWord;
+  }
+
   if (changes.map((c) => c.key).includes('gameResult')) {
-    console.log(`Game over. You ${ctx.gameResult}`);
+    if (ctx.gameResult === 'win') {
+      setTimeout(() => {
+        winSfx.play();
+      }, 1000);
+    }
+    if (ctx.gameResult === 'lose') {
+      loseSfx.play();
+      return;
+    }
+  }
+
+  if (changes.map((c) => c.key).includes('guessedLetters')) {
+    const lastGuess = ctx.guessedLetters[ctx.guessedLetters.length - 1];
+    if (ctx.wordToGuess.includes(lastGuess)) {
+      rightSfx.play();
+    } else {
+      wrongSfx.play();
+    }
   }
 });
 

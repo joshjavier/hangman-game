@@ -20,8 +20,12 @@
 }
 
 .overlay {
-  opacity: 0.75 !important; /* important needed to override inline style */
-  background: linear-gradient(180deg, #1a043a 0%, #151278 70%, #2b1677 100%);
+  background: linear-gradient(
+    180deg,
+    alpha(#1a043a, 0.75) 0%,
+    alpha(#151278, 0.75) 70%,
+    alpha(#2b1677, 0.75) 100%
+  );
 }
 
 .body {
@@ -53,6 +57,8 @@
   paint-order: stroke fill;
   position: absolute;
   top: -52px;
+  width: 100%;
+  text-align: center;
 
   @media (min-width: $mantine-breakpoint-xs) {
     font-size: rem(134px);
