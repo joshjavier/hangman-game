@@ -102,6 +102,21 @@ export const gameMachine = createMachine<GameState, GameContext>(
 );
 
 gameMachine.onContextChange((ctx, changes) => {
+  if (changes.map((c) => c.key).includes('wordToGuess')) {
+    const word = changes.find((c) => c.key === 'wordToGuess')!;
+
+    if (word.value !== word.previousValue) {
+      return;
+    }
+
+    // Don't pick the same word when starting a new game in the same category
+    let newWord = ctx.wordToGuess;
+    while (newWord === word.previousValue) {
+      newWord = getRandomWord(ctx.category!);
+    }
+    ctx.wordToGuess = newWord;
+  }
+
   if (changes.map((c) => c.key).includes('gameResult')) {
     if (ctx.gameResult === 'win') {
       winSfx.play();
