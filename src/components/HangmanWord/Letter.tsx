@@ -14,6 +14,7 @@ export const Letter = memo(({ value, guessed }: LetterProps) => {
       animate={{ opacity: guessed ? 1 : 0.25 }}
       className={classes.letter}
     >
+      <span data-effect="shine" className={classes.shine} />
       {guessed && (
         <motion.span
           initial={{ opacity: 0, scale: 0 }}
