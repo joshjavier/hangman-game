@@ -5457,6 +5457,61 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hangman-game@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "hangman-game@workspace:."
+  dependencies:
+    "@commitlint/cli": "npm:^19.8.0"
+    "@commitlint/config-conventional": "npm:^19.8.0"
+    "@eslint/js": "npm:^9.23.0"
+    "@ianvs/prettier-plugin-sort-imports": "npm:^4.4.1"
+    "@mantine/core": "npm:7.17.5"
+    "@mantine/hooks": "npm:7.17.5"
+    "@storybook/react": "npm:^8.6.8"
+    "@storybook/react-vite": "npm:^8.6.8"
+    "@testing-library/dom": "npm:^10.4.0"
+    "@testing-library/jest-dom": "npm:^6.6.3"
+    "@testing-library/react": "npm:^16.2.0"
+    "@testing-library/user-event": "npm:^14.6.1"
+    "@types/howler": "npm:^2"
+    "@types/node": "npm:^22.13.11"
+    "@types/react": "npm:^19.0.12"
+    "@types/react-dom": "npm:^19.0.4"
+    "@vitejs/plugin-react": "npm:^4.3.4"
+    csshake: "npm:^1.7.0"
+    eslint: "npm:^9.23.0"
+    eslint-config-mantine: "npm:^4.0.3"
+    eslint-plugin-jsx-a11y: "npm:^6.10.2"
+    eslint-plugin-react: "npm:^7.37.4"
+    howler: "npm:^2.2.4"
+    husky: "npm:^9.1.7"
+    identity-obj-proxy: "npm:^3.0.0"
+    jsdom: "npm:^26.0.0"
+    lint-staged: "npm:^15.5.1"
+    motion: "npm:^12.9.4"
+    postcss: "npm:^8.5.3"
+    postcss-preset-mantine: "npm:1.17.0"
+    postcss-simple-vars: "npm:^7.0.1"
+    prettier: "npm:^3.5.3"
+    prop-types: "npm:^15.8.1"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.1.0"
+    react-router-dom: "npm:^7.4.0"
+    storybook: "npm:^8.6.8"
+    storybook-dark-mode: "npm:^4.0.2"
+    stylelint: "npm:^16.16.0"
+    stylelint-config-standard-scss: "npm:^14.0.0"
+    typescript: "npm:^5.8.2"
+    typescript-eslint: "npm:^8.27.0"
+    valtio: "npm:^2.1.4"
+    valtio-fsm: "npm:^1.0.0"
+    vite: "npm:^6.2.2"
+    vite-plugin-svgr: "npm:^4.3.0"
+    vite-tsconfig-paths: "npm:^5.1.4"
+    vitest: "npm:^3.0.9"
+  languageName: unknown
+  linkType: soft
+
 "harmony-reflect@npm:^1.4.6":
   version: 1.6.2
   resolution: "harmony-reflect@npm:1.6.2"
@@ -6845,61 +6900,6 @@ __metadata:
   checksum: 10c0/43b9f6dcbc6fe8b8604cb6396957c3698857a15ba4dbc38284f7f0e61f248300585ef1eb8cc62df54e9c724af977e45b5cdfd88320ef7f53e45070ed3488da55
   languageName: node
   linkType: hard
-
-"mantine-vite-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "mantine-vite-template@workspace:."
-  dependencies:
-    "@commitlint/cli": "npm:^19.8.0"
-    "@commitlint/config-conventional": "npm:^19.8.0"
-    "@eslint/js": "npm:^9.23.0"
-    "@ianvs/prettier-plugin-sort-imports": "npm:^4.4.1"
-    "@mantine/core": "npm:7.17.5"
-    "@mantine/hooks": "npm:7.17.5"
-    "@storybook/react": "npm:^8.6.8"
-    "@storybook/react-vite": "npm:^8.6.8"
-    "@testing-library/dom": "npm:^10.4.0"
-    "@testing-library/jest-dom": "npm:^6.6.3"
-    "@testing-library/react": "npm:^16.2.0"
-    "@testing-library/user-event": "npm:^14.6.1"
-    "@types/howler": "npm:^2"
-    "@types/node": "npm:^22.13.11"
-    "@types/react": "npm:^19.0.12"
-    "@types/react-dom": "npm:^19.0.4"
-    "@vitejs/plugin-react": "npm:^4.3.4"
-    csshake: "npm:^1.7.0"
-    eslint: "npm:^9.23.0"
-    eslint-config-mantine: "npm:^4.0.3"
-    eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-react: "npm:^7.37.4"
-    howler: "npm:^2.2.4"
-    husky: "npm:^9.1.7"
-    identity-obj-proxy: "npm:^3.0.0"
-    jsdom: "npm:^26.0.0"
-    lint-staged: "npm:^15.5.1"
-    motion: "npm:^12.9.4"
-    postcss: "npm:^8.5.3"
-    postcss-preset-mantine: "npm:1.17.0"
-    postcss-simple-vars: "npm:^7.0.1"
-    prettier: "npm:^3.5.3"
-    prop-types: "npm:^15.8.1"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
-    react-router-dom: "npm:^7.4.0"
-    storybook: "npm:^8.6.8"
-    storybook-dark-mode: "npm:^4.0.2"
-    stylelint: "npm:^16.16.0"
-    stylelint-config-standard-scss: "npm:^14.0.0"
-    typescript: "npm:^5.8.2"
-    typescript-eslint: "npm:^8.27.0"
-    valtio: "npm:^2.1.4"
-    valtio-fsm: "npm:^1.0.0"
-    vite: "npm:^6.2.2"
-    vite-plugin-svgr: "npm:^4.3.0"
-    vite-tsconfig-paths: "npm:^5.1.4"
-    vitest: "npm:^3.0.9"
-  languageName: unknown
-  linkType: soft
 
 "map-or-similar@npm:^1.5.0":
   version: 1.5.0
