@@ -15,6 +15,7 @@
     31.25rem
   ); /* 481px on 375px viewport width -> 500px on 643px viewport width */
   border-radius: rem(72px);
+  background: #344aba;
   background: linear-gradient(180deg, #344aba, alpha(#001479, 0.83));
   box-shadow:
     inset 0 -8px 0 4px #140e66,
