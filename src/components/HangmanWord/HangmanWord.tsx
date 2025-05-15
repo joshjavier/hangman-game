@@ -7,7 +7,7 @@ import classes from './HangmanWord.module.css';
 
 export function HangmanWord() {
   const {
-    context: { wordToGuess, gameResult },
+    context: { wordToGuess, gameResult, guessedLetters },
   } = useSnapshot(gameMachine.getStore());
   const [scope, animate] = useAnimate();
 
@@ -26,7 +26,11 @@ export function HangmanWord() {
   return (
     <div ref={scope} className={classes.container}>
       {tokens.map((token, index) => (
-        <Word key={token + index} word={token} />
+        <Word
+          key={token + index}
+          word={token}
+          guessedLetters={guessedLetters.filter((letter) => token.includes(letter)).join('')}
+        />
       ))}
     </div>
   );

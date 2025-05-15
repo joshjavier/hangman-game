@@ -1,22 +1,22 @@
-import { useSnapshot } from 'valtio';
-import { gameMachine } from '@/state';
+import { memo } from 'react';
 import { Letter } from './Letter';
 import classes from './HangmanWord.module.css';
 
 interface WordProps {
   word: string;
+  guessedLetters: string;
 }
 
-export function Word({ word }: WordProps) {
-  const {
-    context: { guessedLetters },
-  } = useSnapshot(gameMachine.getStore());
-
+export const Word = memo(({ word, guessedLetters }: WordProps) => {
   return (
     <span className={classes.word}>
       {word.split('').map((letter, index) => (
-        <Letter key={letter + index} value={letter} guessed={guessedLetters.includes(letter)} />
+        <Letter
+          key={letter + index}
+          value={letter}
+          guessed={guessedLetters.split('').includes(letter)}
+        />
       ))}
     </span>
   );
-}
+});
