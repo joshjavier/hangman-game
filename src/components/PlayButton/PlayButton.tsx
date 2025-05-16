@@ -18,6 +18,7 @@ export function PlayButton({ onGameStart, ...props }: PlayButtonProps) {
       aria-label="Start game"
       classNames={{ root: classes.root, icon: classes.icon }}
       onClick={onClick}
+      data-action="play"
       {...props}
     >
       <IconPlay />
