@@ -54,6 +54,7 @@ Users should be able to:
 - [Motion](https://motion.dev/) (formerly Framer Motion) - For animations
 - [Howler.js](https://howlerjs.com/) - For sound effects
 - [CSShake](https://elrumordelaluz.github.io/csshake/) - For shake effects
+- [Stately](https://stately.ai/) - For simulating the game logic in a [state machine diagram](https://stately.ai/registry/editor/acccdd3f-c8c6-403c-8ff4-39ba5621b0fb?machineId=fc5cf591-a7d1-43b3-88b3-e5e75e277fc1&mode=design)
 
 ### What I learned
 
@@ -81,8 +82,15 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
+- [What is a state machine?](https://statecharts.dev/what-is-a-state-machine.html)
+- [Text Stroke: Stuck In The Middle With You](https://css-tricks.com/text-stroke-stuck-middle/) - This article helped me when I was struggling to implement the outside text stroke in some of the headings. I couldn't make both gradient text and text stroke work, so I just chose a white solid fill and added the stroke for emphasis using the `paint-order` trick.
+- [Outline effect to text](https://stackoverflow.com/questions/4919076/outline-effect-to-text) - This StackOverflow thread has some interesting alternatives to implementing the text outline effect. Might try them for other projects if the need arises.
 - [Announcing “use-sound”, a React Hook for Sound Effects](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) - Stumbled upon this article while searching how to add sound effects. This is where I discovered [Howler](https://howlerjs.com/).
 - [3 UNIQUE Health Bar Damage Taken Effects (Unity Tutorial)](https://www.youtube.com/watch?v=cR8jP8OGbhM) - This is where I got the inspiration for the health bar animation.
+- [Converting WAV to MP3 in the terminal](https://www.christopherlovell.co.uk/blog/2016/08/16/convert-wav-mp3.html) - How to use `ffmpeg` to convert WAV, in my case to MP3 and WEBM formats.
+- [Loading Polyfills Only When Needed](https://philipwalton.com/articles/loading-polyfills-only-when-needed/) - I'm using `Set.prototype.isSubsetOf` to check if all letters have been guessed. Unfortunately, this is not yet supported in some older browsers, like Safari 15 in my iPhone SE. So I use a conditional polyfill to shim the feature when necessary.
+- [How to Create CSS Button Shine Effect on Hover](https://codeconvey.com/css-button-shine-effect-hover/)
+- [Framer Motion Visualizer](https://framer-motion-visualizer.vercel.app/) - For testing spring transitions
 
 ## Author
 
@@ -93,6 +101,11 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I got the sound effects which are all licensed under [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/) from Freesound:
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- <a href="https://freesound.org/people/Higgs01/sounds/428156/">yay.wav</a> by <a href="https://freesound.org/people/Higgs01/">Higgs01</a>
+- <a href="https://freesound.org/people/BloodPixelHero/sounds/572936/">Error</a> by <a href="https://freesound.org/people/BloodPixelHero/">BloodPixelHero</a>
+- <a href="https://freesound.org/people/themusicalnomad/sounds/253886/">negative_beeps.wav</a> by <a href="https://freesound.org/people/themusicalnomad/">themusicalnomad</a>
+- <a href="https://freesound.org/people/unadamlar/sounds/476178/">Correct Choice</a> by <a href="https://freesound.org/people/unadamlar/">unadamlar</a>
+
+I'd also like to give some credit to Hangaroo for inspiring the sound and animation choices I've made for this project. I used to play it a lot when I was a kid, and it's still what comes to mind when I think of a good hangman game.
