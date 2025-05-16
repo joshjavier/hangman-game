@@ -1,0 +1,29 @@
+.root {
+  --button-height: rem(77px);
+  padding: rem(24px) rem(40px);
+  border-radius: rem(20px);
+  border: none;
+  box-shadow: var(--mantine-shadow-inset);
+
+  @mixin hover {
+    background-color: lighten(var(--mantine-color-blue-5), 0.25);
+  }
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    --button-height: rem(182.67px);
+    border-radius: rem(40px);
+  }
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: rem(24px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 1.2px;
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    font-size: var(--mantine-font-size-heading-m);
+    letter-spacing: 2.4px;
+  }
+}

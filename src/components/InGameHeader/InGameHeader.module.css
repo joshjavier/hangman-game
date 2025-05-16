@@ -1,0 +1,42 @@
+.header {
+  justify-content: space-between;
+  align-items: center;
+  padding-top: rem(46px);
+  flex-wrap: wrap-reverse;
+  gap: 1rem;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-top: rem(60px);
+  }
+}
+
+.left {
+  gap: rem(16px);
+  align-items: center;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    gap: rem(32px);
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    gap: rem(57px);
+  }
+}
+
+.title {
+  font-size: rem(40px);
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  color: #fff;
+
+  @media ($mantine-breakpoint-xs <= width < $mantine-breakpoint-md) {
+    font-size: var(--mantine-font-size-heading-m);
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    font-size: var(--mantine-font-size-heading-l);
+    letter-spacing: normal;
+  }
+}

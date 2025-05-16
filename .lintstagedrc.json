@@ -1,0 +1,5 @@
+{
+  "!(*.css|*.ts|*.tsx)": "eslint --cache",
+  "*.css": "stylelint --cache",
+  "*.{ts,tsx}": ["eslint --cache", "prettier --write"]
+}

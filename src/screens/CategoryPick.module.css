@@ -1,0 +1,11 @@
+.container {
+  box-sizing: content-box;
+  padding-inline: rem(25px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-inline: rem(40px);
+  }
+}

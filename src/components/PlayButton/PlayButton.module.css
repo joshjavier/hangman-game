@@ -1,0 +1,28 @@
+.root {
+  --ai-size: clamp(
+    10rem,
+    6.5019rem + 14.9254vw,
+    12.5rem
+  ); /* 160px on 375px viewport width -> 200px on 643px viewport width */
+  border: none;
+  border-radius: 999em;
+  background: linear-gradient(180deg, #fe71fe 0%, #7199ff 100%);
+
+  @mixin hover {
+    & > * {
+      background: alpha(#fff, 0.25);
+    }
+  }
+}
+
+.icon {
+  border-radius: 999em;
+  box-shadow:
+    inset 0 -4px 0 5px #243041,
+    inset 0 -12px 0 11px #9d2df5;
+
+  & svg {
+    width: clamp(3.3019rem, 2.0627rem + 5.2873vw, 4.1875rem);
+    height: clamp(3.1131rem, 1.8722rem + 5.2948vw, 4rem);
+  }
+}

@@ -1,0 +1,33 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: rem(78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > .wordOuter {
+    margin-block: 3rem;
+  }
+}
+
+.upper {
+  box-sizing: content-box;
+  padding-inline: rem(25px);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-inline: rem(40px);
+  }
+}
+
+.wordOuter {
+  padding-bottom: rem(32px); /* increase bottom spacing a bit more than the top */
+}
+
+.lower {
+  box-sizing: content-box;
+  padding-inline: rem(25px);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-inline: rem(32px);
+  }
+}

@@ -1,0 +1,19 @@
+.container {
+  align-items: center;
+  gap: rem(16px);
+  margin-inline-start: auto;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    gap: rem(40px);
+  }
+}
+
+.icon {
+  width: rem(26.16px);
+  height: rem(24px);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    width: rem(53.33px);
+    height: rem(48.93px);
+  }
+}

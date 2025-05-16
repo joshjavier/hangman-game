@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  gap: rem(16px);
+  margin-block: auto;
+  padding-block: rem(64px);
+  padding-inline-start: 0;
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    gap: rem(32px);
+    grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    row-gap: rem(50px);
+  }
+}

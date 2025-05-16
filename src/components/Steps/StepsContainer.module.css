@@ -1,0 +1,22 @@
+.root {
+  counter-reset: step;
+  margin-block: auto;
+  padding-block: rem(64px);
+  padding-inline-start: 0;
+  flex-direction: column;
+  gap: rem(24px);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    gap: rem(32px);
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    flex-direction: row;
+
+    & > * {
+      flex-grow: 1;
+      max-width: calc((100% / 3) - (rem(32px) - (rem(32px) / 3)));
+      /* max-width: 384px; */
+    }
+  }
+}

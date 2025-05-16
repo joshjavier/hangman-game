@@ -1,0 +1,86 @@
+.card {
+  padding: rem(32px);
+  border-radius: rem(20px);
+  background-color: #fff;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: rem(40px);
+  max-width: rem(680px);
+  margin-inline: auto;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    padding-inline: rem(40px);
+    border-radius: rem(40px);
+
+    &::before {
+      counter-increment: step;
+      content: '0' counter(step);
+      font-size: var(--mantine-font-size-heading-l);
+      color: var(--mantine-color-blue-5);
+    }
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    padding: rem(60px) rem(40px);
+    flex-direction: column;
+    text-align: center;
+  }
+
+  & * {
+    line-height: inherit;
+  }
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    display: contents;
+  }
+}
+
+.title {
+  font-size: rem(24px);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--mantine-color-blue-9);
+
+  @media (width < $mantine-breakpoint-xs) {
+    &::before {
+      counter-increment: step;
+      content: '0' counter(step);
+      margin-right: rem(16px);
+      color: var(--mantine-color-blue-5);
+    }
+  }
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    font-size: rem(40px);
+    letter-spacing: 2px;
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    font-size: var(--mantine-font-size-heading-m);
+    letter-spacing: 2.4px;
+  }
+}
+
+.description {
+  letter-spacing: 0.8px;
+  color: #887dc0;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    font-size: rem(20px);
+    letter-spacing: 1px;
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
+    font-size: var(--mantine-font-size-body);
+    letter-spacing: 1.3px;
+    max-width: rem(288px);
+    margin-inline: auto;
+  }
+}
