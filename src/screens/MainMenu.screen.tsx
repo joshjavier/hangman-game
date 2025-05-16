@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { Box, Center, Container } from '@mantine/core';
+import { Box, Center, Container, VisuallyHidden } from '@mantine/core';
 import { MenuButton } from '@/components/MenuButton';
 import { PlayButton } from '@/components/PlayButton';
 import { navigate } from '@/state';
@@ -17,13 +17,8 @@ export function MainMenu() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -500, transition: { bounce: 0 } }}
           >
-            <img
-              src="/images/logo.svg"
-              alt="The Hangman Game"
-              width="374"
-              height="185"
-              className={classes.logo}
-            />
+            <VisuallyHidden component="h1">The Hangman Game</VisuallyHidden>
+            <img src="/images/logo.svg" alt="" width="374" height="185" className={classes.logo} />
             <PlayButton onGameStart={() => navigate('categorypick')} />
             <MenuButton target="howtoplay">How to Play</MenuButton>
           </Box>
